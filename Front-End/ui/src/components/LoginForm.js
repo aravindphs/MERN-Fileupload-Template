@@ -7,6 +7,7 @@ const LoginForm = () => {
     place: "",
     course: "",
     phone: "",
+    file: "",
   });
 
   const handleInputChange = (e) => {
@@ -36,6 +37,17 @@ const LoginForm = () => {
       .catch(function (error) {
         console.log(error);
       });
+  };
+
+  const handleFileSave = async (e) => {
+    e.preventDefault();
+
+    const response = axios.post(
+      ("http://localhost:8080/api/tutorials/", formData).then((response) => {
+        console.log(response);
+      })
+      .then()
+    );
   };
 
   //using Fetch
@@ -98,7 +110,10 @@ const LoginForm = () => {
         value={formData.phone}
         onChange={handleInputChange}
       ></input>
-      <input type="file" name="uploaded_file"></input>
+      <input type="file" name="file"></input>
+      <button name="file" onClick={handleFileSave}>
+        Upload File
+      </button>
       <button type="submit">Submit</button>
     </form>
   );
