@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -39,15 +40,9 @@ const LoginForm = () => {
       });
   };
 
-  const handleFileSave = async (e) => {
-    e.preventDefault();
-
-    const response = axios.post(
-      ("http://localhost:8080/api/tutorials/", formData).then((response) => {
-        console.log(response);
-      })
-      .then()
-    );
+  const navigate = useNavigate();
+  const fetchData = () => {
+    navigate("/table");
   };
 
   //using Fetch
@@ -110,11 +105,10 @@ const LoginForm = () => {
         value={formData.phone}
         onChange={handleInputChange}
       ></input>
-      <input type="file" name="file"></input>
-      <button name="file" onClick={handleFileSave}>
-        Upload File
-      </button>
       <button type="submit">Submit</button>
+      <button type="submit" onClick={fetchData}>
+        Data
+      </button>
     </form>
   );
 };

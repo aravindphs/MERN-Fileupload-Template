@@ -30,3 +30,15 @@ button {
   width: 100px;
   margin: 10px 0 0 0;
 }
+
+table {
+  width: 100vw;
+  height: 100%;
+  color: white;
+}
+
+.tdButton {
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+}
